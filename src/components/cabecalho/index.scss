@@ -1,0 +1,20 @@
+.comp-cabecalho{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    padding: 30px;
+
+    background-color: #313131;
+
+    .titulo{
+        font-size: 20px;
+        color: #EDF2F4;
+    }
+
+    img{
+        width: 64px;
+        height: 64px;
+    }
+    
+}
