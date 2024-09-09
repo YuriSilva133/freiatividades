@@ -1,8 +1,23 @@
 import './index.scss'
 import Cabecalho from '../../components/cabecalho'
 
+import { useState } from 'react'
+
+//chamar api
+import axios from 'axios'
 
 export default function App() {
+
+    const [cards, setCards] = useState([])
+
+
+    //Chamar api
+    async function listarCards() {
+        const resposta = await axios.get('http://localhost:3001/cards')
+        console.log(resposta.data);
+
+        setCards(resposta.data)
+    }
 
     return (
         <div className='pagina-app'>
@@ -15,8 +30,6 @@ export default function App() {
                 <div className='cards'>
 
                     <Card />
-
-
 
                     {/*
                     <Card
@@ -62,16 +75,6 @@ export function Card({ titulo, status, descricao, data, trabalho }) {
     let corPrimaria = '#A3E5BA'
     let corSegundaria = '#EFFBE2'
 
-    let listaObjetos = [
-        {
-            "status": "completo",
-            "titulo": "Componentes",
-            "descricao": "- Objetos e Listas de Objetos",
-            "data": "02/fevereiro",
-            "trabalho": true,
-            "fimBimestre": false
-        }
-    ]
 
     switch (status) {
         case 'completo':
@@ -120,7 +123,6 @@ export function Card({ titulo, status, descricao, data, trabalho }) {
 
     return (
         <div className='cards'>
-
             {/* 
             <div className='card' style={{ backgroundColor: corSegundaria }}>
                 <div className='card-cabecalho' style={{ backgroundColor: corPrimaria }}>
@@ -146,6 +148,7 @@ export function Card({ titulo, status, descricao, data, trabalho }) {
             */}
 
             {listaObjetos.map((item) => (
+
                 <div className='card' style={{ backgroundColor: corSegundaria}}>
                     <div className='card-cabecalho' style={{ backgroundColor: corPrimaria }}>
 
@@ -168,6 +171,7 @@ export function Card({ titulo, status, descricao, data, trabalho }) {
                         {item.trabalho && <p className='entregar'> Entrega Trab.</p>}
                     </div>
                 </div>
+
             ))}
         </div>
     )
