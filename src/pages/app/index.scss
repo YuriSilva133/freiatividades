@@ -1,84 +1,75 @@
-@import '../../colors';
+@import "../../colors";
 
 .pagina-app {
+  .secao {
+    padding: 70px 150px;
 
-    .secao {
-        padding: 70px 150px;
+    .titulo {
+      margin-bottom: 50px;
+      font-weight: 400;
+      color: #313131;
+    }
 
-        .titulo {
-            margin-bottom: 50px;
-            font-weight: 400;
-            color: #313131;
-        }
-
-
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-
-            .card {
-                
-                width: 350px;
-                height: 260px;
-
-                border-radius: 12px;
-                box-shadow:
-                    rgba(0, 0, 0, 0.19) 0px 10px 20px,
-                    rgba(0, 0, 0, 0.23) 0px 6px 6px;
-
-                .card-cabecalho {
-                    padding: 8px 0px;
-                    font-size: 14px;
-                    text-align: center;
-                    border-radius: 12px 12px 0px 0px;
-                }
-
-                .card-conteudo {
-                    padding: 12px;
-                    height: 180px;
-
-                    pre {
-                        height: 150px;
-                        margin-top: 12px;
-                        text-wrap: nowrap;
-                        overflow: hidden;
-                        font-weight: 400;
-                        text-overflow: ellipsis;
-                    }
-                }
-
-                .card-tags {
-
-                    p {
-                        background-color: $destaque;
-                        color: $primaria;
-                        font-weight: bold;
-                        padding: 5px 15px;
-                        width: 150px;
-                        text-align: center;
-                        border-radius: 10px;
-                    }
-
-                    .tag {
-                        float: right;
-                        margin-right: 12px;
-                    }
-
-                    .entregar {
-                        margin-left: 12px;
-                    }
-                }
-
-            }
-        }
-
-
-
+    button{
+      width: 200px;
     }
 
 
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
 
+      .card {
+        width: 350px;
+        height: 260px;
 
+        border-radius: 12px;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+          rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
+        .card-cabecalho {
+          padding: 8px 0px;
+          font-size: 14px;
+          text-align: center;
+          border-radius: 12px 12px 0px 0px;
+        }
+
+        .card-conteudo {
+          padding: 12px;
+          height: 180px;
+
+          pre {
+            height: 150px;
+            margin-top: 12px;
+            text-wrap: nowrap;
+            overflow: hidden;
+            font-weight: 400;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .card-tags {
+          p {
+            background-color: $destaque;
+            color: $primaria;
+            font-weight: bold;
+            padding: 5px 15px;
+            width: 150px;
+            text-align: center;
+            border-radius: 10px;
+          }
+
+          .tag {
+            float: right;
+            margin-right: 12px;
+          }
+
+          .entregar {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
 }
