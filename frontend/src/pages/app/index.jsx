@@ -7,54 +7,18 @@ import { useState } from 'react'
 import axios from 'axios'
 
 export default function App() {
-
     const [cards, setCards] = useState([])
-    const [listaObjetos, setListaObjetos] = useState()
 
     //Chamar api
     async function listarCards() {
-        const resposta = await axios.get('http://localhost:3001/cards')
-        console.log(resposta.data);
+        try {
+            const resposta = await axios.get('http://localhost:3001/cards')
+            setCards(resposta.data)
 
-        setCards(resposta.data)
-        setListaObjetos(resposta.data)
-
-        console.log(cards)
-        console.log(listaObjetos)
-    }
-
-    /*
-    let listaObjetos = [
-        {
-            'status': 'completo',
-            'titulo': 'Componentes',
-            'descricao': '- Objetos e Listas de Objetos - Componentes',
-            'data': '26/agosto',
-            'trabalho': false
-        },
-        {
-            'status': 'em andamento',
-            'titulo': 'Renderização e Efeito',
-            'descricao': '- Componentes na renderização',
-            'data': '2/setembro',
-            'trabalho': false
-        },
-        {
-            'status': 'criado',
-            'titulo': 'Consumindo APIs - Parte 1',
-            'descricao': '- Componentes na renderização.',
-            'data': '9/setembro',
-            'trabalho': true
-        },
-        {
-            'status': 'evento',
-            'titulo': 'Componentes',
-            'descricao': '- Objetos e Listas de Objetos - Componentes',
-            'data': '16/setembro',
-            'trabalho': false
+        } catch (error) {
+            alert(error);
         }
-    ]
-    */
+    }
 
     return (
         <div className="pagina-app">
@@ -64,9 +28,7 @@ export default function App() {
                 <button onClick={listarCards}>Adicionar</button>
                 <h1 className="titulo"> Conteúdos </h1>
 
-
                 <div className="cards">
-
                     {cards.map((item, index) => (
                         <Card
                             key={index}
