@@ -14,21 +14,36 @@ servidor.get('/cards', (req, res) => {
             descricao: '- Objetos e Listas de Objetos',
             data: '01/jan',
             status: 'em andamento',
-            trabalho: true
+            trabalho: true,
+           
         },
         {
-            titulo: 'Componentes',
-            descricao: '- Objetos e Listas de Objetos',
+            titulo: 'Renderização e Efeito',
+            descricao: '- Componentes na renderização.',
             data: '02/jan',
             status: 'completo',
-            trabalho: true
+            trabalho: true,
+           
         },
         {
-            titulo: 'Componentes',
+            titulo: 'Consumindo APIs - Parte 1',
+            descricao: '- Objetos e Listas de Objetos',
+            data: '03/jan',
+            status: 'criado',
+            trabalho: false,
+           
+        },
+        {
+            titulo: 'Prova Prática e Teórica',
             descricao: '- Objetos e Listas de Objetos',
             data: '03/jan',
             status: 'evento',
-            trabalho: false
+            trabalho: false,
+           
+        },
+        {
+            titulo: 'Fim do Bimestre',
+            FimBimestre: true
         }
     ]
 

@@ -1,20 +1,19 @@
 import "./index.scss";
 import Cabecalho from "../../components/cabecalho";
 
-import { useState } from 'react'
+import { useState } from "react";
 
 //chamar api
-import axios from 'axios'
+import axios from "axios";
 
 export default function App() {
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState([]);
 
     //Chamar api
     async function listarCards() {
         try {
-            const resposta = await axios.get('http://localhost:3001/cards')
-            setCards(resposta.data)
-
+            const resposta = await axios.get("http://localhost:3001/cards");
+            setCards(resposta.data);
         } catch (error) {
             alert(error);
         }
@@ -25,12 +24,18 @@ export default function App() {
             <Cabecalho />
 
             <div className="secao">
-                <button onClick={listarCards}>Adicionar</button>
-                <h1 className="titulo"> Conteúdos </h1>
+                <div className="titulo">
+                    <h1> Conteúdos </h1>
+                    <button onClick={listarCards}>Adicionar</button>
+                </div>
 
                 <div className="cards">
-                    {cards.map((item, index) => (
-                        <Card
+                    {
+                    // if ternário
+                    cards.map((item, index) => item.FimBimestre
+                        ? <FimBimestre titulo={item.titulo}/>
+
+                        : <Card
                             key={index}
                             titulo={item.titulo}
                             status={item.status}
@@ -38,7 +43,9 @@ export default function App() {
                             data={item.data}
                             trabalho={item.trabalho}
                         />
-                    ))}
+                    
+                    )}
+
                 </div>
             </div>
         </div>
@@ -98,6 +105,16 @@ export function Card({ titulo, status, descricao, data, trabalho }) {
                     {data && <p className="tag"> {data} </p>}
                     {trabalho && <p className="entregar"> Entrega Trab.</p>}
                 </div>
+            </div>
+        </div>
+    );
+}
+
+export function FimBimestre({ titulo }) {
+    return (
+        <div className="cards">
+            <div className="card card-fimBimestre">
+                <h2>{titulo}</h2>
             </div>
         </div>
     );
